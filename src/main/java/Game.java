@@ -14,10 +14,10 @@ public class Game {
     private Terminal terminal = new DefaultTerminalFactory().createTerminal();
     private Screen screen = new TerminalScreen(terminal);
 
-    private Hero hero;
+    private Arena arena;
 
     public Game() throws IOException {
-        hero = new Hero(10,10);
+        arena = new Arena(10, 10);
 
         screen.setCursorPosition(null);
         screen.startScreen();
@@ -26,9 +26,10 @@ public class Game {
         run();
     }
 
+
     private void draw() throws IOException {
         this.screen.clear();
-        hero.draw(screen);
+        arena.draw(screen);
         screen.refresh();
     }
 
@@ -44,40 +45,10 @@ public class Game {
     }
 
     private void processKey(KeyStroke key) throws IOException {
-        switch(key.getKeyType()) {
-            case ArrowUp: {
-                moveHero(hero.moveUp());
-                break;
-            }
-
-            case ArrowDown: {
-                moveHero(hero.moveDown());
-                break;
-            }
-
-            case ArrowLeft: {
-                moveHero(hero.moveLeft());
-                break;
-            }
-
-            case ArrowRight: {
-                moveHero(hero.moveRight());
-                break;
-            }
-
-            case Character: {
-                switch(key.getCharacter()) {
-                    case 'q': {
-                        screen.close();
-                    }
-                }
-            }
-
-            default:break;
+        if (key.getKeyType() == Character && key.getCharacter() == 'q') {
+            screen.close();
         }
-    }
 
-    private void moveHero(Position position) {
-        hero.setPosition(position);
+        arena.processKey(key);
     }
 }

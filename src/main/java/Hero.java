@@ -8,6 +8,7 @@ public class Hero {
         position = new Position(x, y);
     }
 
+
     public Position moveUp() {
         return new Position(position.getX(), position.getY() - 1);
     }

@@ -1,6 +1,8 @@
-import com.googlecode.lanterna.TextCharacter;
+import com.googlecode.lanterna.TerminalPosition;
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.screen.Screen;
 
 public class Arena {
     private int width;
@@ -60,7 +62,9 @@ public class Arena {
         }
     }
 
-    public void draw(Screen screen) {
+    public void draw(TextGraphics screen) {
+        screen.setBackgroundColor(TextColor.Factory.fromString("#336699"));
+        screen.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
         hero.draw(screen);
     }
 
@@ -70,6 +74,6 @@ public class Arena {
     }
 
     private boolean canHeroMove(Position position) {
-        return position.getX() <= width && position.getX() >= 0 && position.getY() <= height && position.getY() >= 0;
+        return position.getX() < width && position.getX() >= 0 && position.getY() < height && position.getY() >= 0;
     }
 }

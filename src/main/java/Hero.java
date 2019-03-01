@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Hero {
-    private Position position;
+    protected Position position;
 
     public Hero(int x, int y) {
         position = new Position(x, y);

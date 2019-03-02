@@ -23,5 +23,9 @@ public abstract class Element {
         return new Position(position.getX() + 1, position.getY());
     }
 
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
     public abstract void draw(TextGraphics graphics);
 }

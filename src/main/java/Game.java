@@ -15,7 +15,7 @@ public class Game {
     private Arena arena;
 
     public Game() throws IOException {
-        arena = new Arena(10, 10);
+        arena = new Arena(20, 20);
 
         screen.setCursorPosition(null);
         screen.startScreen();

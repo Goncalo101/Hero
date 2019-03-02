@@ -13,8 +13,4 @@ public class Hero extends Element {
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
     }
-
-    public void setPosition(Position position) {
-        super.position = position;
-    }
 }

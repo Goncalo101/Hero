@@ -17,6 +17,15 @@ public class Monster extends Element {
         functionList.add(moveDown());
         functionList.add(moveLeft());
         functionList.add(moveDown());
+
+        functionList.add(new Position(position.getX() + 1, position.getY() + 1));
+        functionList.add(new Position(position.getX() + 2, position.getY() + 2));
+        functionList.add(new Position(position.getX() - 1, position.getY() - 1));
+        functionList.add(new Position(position.getX() - 2, position.getY() - 2));
+        functionList.add(new Position(position.getX() + 1, position.getY() - 1));
+        functionList.add(new Position(position.getX() + 2, position.getY() - 2));
+        functionList.add(new Position(position.getX() - 1, position.getY() + 1));
+        functionList.add(new Position(position.getX() - 2, position.getY() + 2));
     }
 
     public Position move() {

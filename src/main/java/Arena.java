@@ -115,7 +115,7 @@ public class Arena {
             if (hero.position.getX() == monster.position.getX() && hero.position.getY() == monster.position.getY()) {
                 System.out.println("Hero hit Monster");
 
-                System.exit(0);
+                hero.setHealth(hero.getHealth() - 10);
 
                 break;
             }
@@ -182,6 +182,7 @@ public class Arena {
         for (Coin coin : coins) {
             if (hero.position.getX() == coin.position.getX() && hero.position.getY() == coin.position.getY()) {
                 coins.remove(coin);
+                hero.setScore(hero.getScore() + 10);
                 break;
             }
         }

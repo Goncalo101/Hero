@@ -54,12 +54,12 @@ public class Hero extends Element {
     }
 
     public static void lose(TextGraphics graphics) {
-        graphics.putString(new TerminalPosition(25, 10), "You lost. Your score: " + score + ". Press q to exit.");
+        graphics.putString(new TerminalPosition(25, 10), "You lost. Your score: " + score + ". Press q to exit, r to restart.");
         Game.disableInput();
     }
 
     public static void win(TextGraphics graphics) {
-        graphics.putString(new TerminalPosition(25, 10), "You win. Your score: " + score + ". Press q to exit.");
+        graphics.putString(new TerminalPosition(25, 10), "You win. Your score: " + score + ". Press q to exit, r to restart.");
         Game.disableInput();
     }
 }

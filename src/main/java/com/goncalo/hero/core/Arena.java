@@ -32,6 +32,8 @@ public class Arena {
         this.height = height;
 
         hero = new Hero(5, 5);
+        hero.setScore(0);
+        hero.setHealth(100);
 
         this.walls = createWalls();
         this.coins = createCoins();

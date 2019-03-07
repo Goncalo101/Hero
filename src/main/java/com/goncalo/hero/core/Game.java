@@ -47,6 +47,8 @@ public class Game {
 
             if (key.getKeyType() == Character && key.getCharacter() == 'q')
                 screen.close();
+            else if (!enableInput && key.getKeyType() == Character && key.getCharacter() == 'r')
+                arena = new Arena(20, 20);
 
             if (enableInput)
                 processKey(key);

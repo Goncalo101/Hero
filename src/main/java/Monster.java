@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static java.lang.Math.abs;
+
 public class Monster extends Element {
     private List<Position> functionList = new ArrayList<>();
 
@@ -31,7 +33,7 @@ public class Monster extends Element {
     public Position move() {
         Random random = new Random();
 
-        return functionList.get(random.nextInt(functionList.size() - 1));
+        return functionList.get(abs(random.nextInt() % (functionList.size() - 1)));
     }
 
 

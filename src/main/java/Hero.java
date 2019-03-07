@@ -4,7 +4,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class Hero extends Element {
-    private int health = 100;
+    private int health = 0;
     private int score = 0;
 
     public Hero(int x, int y) {
@@ -32,7 +32,13 @@ public class Hero extends Element {
         graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
 
-        ++score;
+        // there's a better way of doing this...
+        if (health > 0)
+            ++score;
+        else {
+            graphics.putString(new TerminalPosition(25,10), "You lost. Your score: " + score + ". Press q to exit.");
+            Game.disableInput();
+        }
     }
 
     public int getHealth() {

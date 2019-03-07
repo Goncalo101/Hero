@@ -14,6 +14,8 @@ public class Game {
 
     private Arena arena;
 
+    private static boolean enableInput = true;
+
     public Game() throws IOException {
         arena = new Arena(20, 20);
 
@@ -36,17 +38,22 @@ public class Game {
             this.draw();
 
             KeyStroke key = screen.readInput();
-            processKey(key);
+
+            if (key.getKeyType() == Character && key.getCharacter() == 'q')
+                screen.close();
+
+            if (enableInput)
+                processKey(key);
 
             if (key.getKeyType() == EOF) break;
         }
     }
 
-    private void processKey(KeyStroke key) throws IOException {
-        if (key.getKeyType() == Character && key.getCharacter() == 'q') {
-            screen.close();
-        }
-
+    private void processKey(KeyStroke key) {
         arena.processKey(key);
+    }
+
+    public static void disableInput() {
+        enableInput = false;
     }
 }

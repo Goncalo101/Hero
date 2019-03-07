@@ -100,10 +100,17 @@ public class Arena {
         moveMonsters();
     }
 
-
     public void draw(TextGraphics graphics) {
         graphics.setBackgroundColor(TextColor.Factory.fromString("#336699"));
         graphics.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(width, height), ' ');
+
+        if (hero.getHealth() == 0) {
+            Hero.lose(graphics);
+        } else {
+            if (Game.inputEnabled())
+                hero.setScore(hero.getScore() + 1);
+        }
+
         hero.draw(graphics);
 
         for (Wall wall : walls)

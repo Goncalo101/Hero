@@ -34,16 +34,7 @@ public class Hero extends Element {
 
         graphics.setBackgroundColor(originalBackground);
         graphics.setForegroundColor(TextColor.Factory.fromString("#FFFF33"));
-        graphics.enableModifiers(SGR.BOLD);
         graphics.putString(new TerminalPosition(position.getX(), position.getY()), "X");
-
-
-        // there's a better way of doing this...
-        if (health > 0 && Game.inputEnabled())
-            ++score;
-        else {
-            lose(graphics);
-        }
     }
 
     public int getHealth() {
@@ -62,7 +53,7 @@ public class Hero extends Element {
         Hero.score = score;
     }
 
-    public void lose(TextGraphics graphics) {
+    public static void lose(TextGraphics graphics) {
         graphics.putString(new TerminalPosition(25, 10), "You lost. Your score: " + score + ". Press q to exit.");
         Game.disableInput();
     }

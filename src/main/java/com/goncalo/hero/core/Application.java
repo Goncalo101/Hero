@@ -1,3 +1,5 @@
+package com.goncalo.hero.core;
+
 import java.io.IOException;
 
 public class Application {

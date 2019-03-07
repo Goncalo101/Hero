@@ -1,3 +1,11 @@
+package com.goncalo.hero.core;
+
+import com.goncalo.hero.entities.Coin;
+import com.goncalo.hero.entities.Hero;
+import com.goncalo.hero.entities.Monster;
+import com.goncalo.hero.entities.Wall;
+import com.goncalo.hero.utilities.Position;
+
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
@@ -112,8 +120,8 @@ public class Arena {
 
     private void verifyMonsterCollisions() {
         for (Monster monster : monsters) {
-            if (hero.position.getX() == monster.position.getX() && hero.position.getY() == monster.position.getY()) {
-                System.out.println("Hero hit Monster");
+            if (hero.getPosition().getX() == monster.getPosition().getX() && hero.getPosition().getY() == monster.getPosition().getY()) {
+                System.out.println("com.goncalo.hero.entities.Hero hit com.goncalo.hero.entities.Monster");
 
                 hero.setHealth(hero.getHealth() - 10);
 
@@ -147,7 +155,7 @@ public class Arena {
             Coin coin = new Coin(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
 
 
-            while (coins.indexOf(coin) != -1 || (coin.position.getX() == hero.position.getX() && coin.position.getY() == hero.position.getY())) {
+            while (coins.indexOf(coin) != -1 || (coin.getPosition().getX() == hero.getPosition().getX() && coin.getPosition().getY() == hero.getPosition().getY())) {
                 coin = new Coin(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
             }
 
@@ -166,7 +174,7 @@ public class Arena {
             Monster monster = new Monster(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
 
 
-            while (monsters.indexOf(monster) != -1 || (monster.position.getX() == hero.position.getX() && monster.position.getY() == hero.position.getY())) {
+            while (monsters.indexOf(monster) != -1 || (monster.getPosition().getX() == hero.getPosition().getX() && monster.getPosition().getY() == hero.getPosition().getY())) {
                 monster = new Monster(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
             }
 
@@ -180,7 +188,7 @@ public class Arena {
 
     private void retrieveCoins() {
         for (Coin coin : coins) {
-            if (hero.position.getX() == coin.position.getX() && hero.position.getY() == coin.position.getY()) {
+            if (hero.getPosition().getX() == coin.getPosition().getX() && hero.getPosition().getY() == coin.getPosition().getY()) {
                 coins.remove(coin);
                 hero.setScore(hero.getScore() + 10);
                 break;

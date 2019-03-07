@@ -1,3 +1,5 @@
+package com.goncalo.hero.core;
+
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;

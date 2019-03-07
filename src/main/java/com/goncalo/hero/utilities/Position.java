@@ -1,3 +1,5 @@
+package com.goncalo.hero.utilities;
+
 public class Position {
     private int x;
     private int y;

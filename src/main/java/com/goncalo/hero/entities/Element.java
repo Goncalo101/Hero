@@ -1,3 +1,6 @@
+package com.goncalo.hero.entities;
+
+import com.goncalo.hero.utilities.Position;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public abstract class Element {
@@ -25,6 +28,10 @@ public abstract class Element {
 
     public void setPosition(Position position) {
         this.position = position;
+    }
+
+    public Position getPosition() {
+        return this.position;
     }
 
     public abstract void draw(TextGraphics graphics);

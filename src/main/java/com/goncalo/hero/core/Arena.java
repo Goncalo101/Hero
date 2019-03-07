@@ -25,6 +25,8 @@ public class Arena {
     private List<Coin> coins;
     private List<Monster> monsters;
 
+    private int numCoins = 5;
+
     public Arena(int width, int height) {
         this.width = width;
         this.height = height;
@@ -109,6 +111,10 @@ public class Arena {
 
         retrieveCoins();
 
+        if (coins.isEmpty()) {
+            Hero.win(graphics);
+        }
+
         for (Coin coin : coins)
             coin.draw(graphics);
 
@@ -121,7 +127,7 @@ public class Arena {
     private void verifyMonsterCollisions() {
         for (Monster monster : monsters) {
             if (hero.getPosition().getX() == monster.getPosition().getX() && hero.getPosition().getY() == monster.getPosition().getY()) {
-                System.out.println("com.goncalo.hero.entities.Hero hit com.goncalo.hero.entities.Monster");
+                System.out.println("Hero hit Monster");
 
                 hero.setHealth(hero.getHealth() - 10);
 
@@ -151,7 +157,7 @@ public class Arena {
         Random random = new Random();
         ArrayList<Coin> coins = new ArrayList<>();
 
-        for (int i = 0; i < 5; ++i) {
+        for (int i = 0; i < numCoins; ++i) {
             Coin coin = new Coin(random.nextInt(width - 2) + 1, random.nextInt(height - 2) + 1);
 
 
@@ -194,5 +200,9 @@ public class Arena {
                 break;
             }
         }
+    }
+
+    public void setNumCoins(int numCoins) {
+        this.numCoins = numCoins;
     }
 }

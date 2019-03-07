@@ -28,6 +28,10 @@ public class Game {
         run();
     }
 
+    public static boolean inputEnabled() {
+        return enableInput;
+    }
+
 
     private void draw() throws IOException {
         this.screen.clear();
